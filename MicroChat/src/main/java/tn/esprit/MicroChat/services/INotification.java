@@ -1,6 +1,6 @@
-package tn.esprit.discord.services;
+package tn.esprit.MicroChat.services;
 
-import tn.esprit.discord.entites.Notification;
+import tn.esprit.MicroChat.entites.Notification;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package tn.esprit.discord.services;
+package tn.esprit.MicroChat.services;
 
-import tn.esprit.discord.entites.Notification;
-import tn.esprit.discord.repositories.NotificationRepository;
+import tn.esprit.MicroChat.entites.Notification;
+import tn.esprit.MicroChat.repositories.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,9 +33,9 @@ private NotificationRepository nr ;
 
     @Override
     public void deleteNotification(Long id) {
-    nr.deleteById(id);
-    }
+        nr.deleteById(id);
 
+    }
     @Override
     public Notification getvByName(String name) {
         return nr.findByTitle(name);

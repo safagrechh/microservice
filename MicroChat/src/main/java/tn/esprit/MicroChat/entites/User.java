@@ -1,4 +1,4 @@
-package tn.esprit.discord.entites;
+package tn.esprit.MicroChat.entites;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,11 +13,14 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
+@Table(name = "\"user\"")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idUser;
-    private Long NomUser;
+    private long idUser;
+    private String nomUser;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Notification> notifications;
+
 }
+

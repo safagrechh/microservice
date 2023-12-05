@@ -1,6 +1,6 @@
-package tn.esprit.discord.repositories;
+package tn.esprit.MicroChat.repositories;
 
-import tn.esprit.discord.entites.Notification;
+import tn.esprit.MicroChat.entites.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package tn.esprit.discord.entites;
+package tn.esprit.MicroChat.entites;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,12 +16,13 @@ import java.util.Date;
 public class Notification {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idNotification;
+    private long idNotification;
     private String title;
     private String description;
     private Date creationDate;
-
     @ManyToOne
-    private User user ;
+    @JoinColumn(name = "user_id")
+    private User user;
+
 
 }

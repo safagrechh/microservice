@@ -1,7 +1,7 @@
-package tn.esprit.discord.controllers;
+package tn.esprit.MicroChat.controllers;
 
-import tn.esprit.discord.entites.Notification;
-import tn.esprit.discord.services.NotificationServiceimp;
+import tn.esprit.MicroChat.entites.Notification;
+import tn.esprit.MicroChat.services.NotificationServiceimp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,13 +37,8 @@ public class NotificationController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<HttpStatus> deleteNotification(@PathVariable("id") Long id) {
-        try {
-            ns.deleteNotification(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+    public void deleteN(@PathVariable long id) {
+        ns.deleteNotification(id);
     }
 
     @GetMapping("/get/{id}")
