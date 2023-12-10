@@ -1,6 +1,7 @@
 package tn.esprit.MicroChat.services;
 
 import tn.esprit.MicroChat.entites.Notification;
+import tn.esprit.MicroChat.entites.User;
 
 import java.util.List;
 
@@ -16,4 +17,9 @@ public interface INotification {
     public void deleteNotification(Long id);
 
     public Notification getvByName(String name);
+
+    List<Notification> mesnotifications(Long iduser);
+
+    public User addUser(User user);
+
 }

@@ -1,6 +1,7 @@
 package tn.esprit.MicroChat.controllers;
 
 import tn.esprit.MicroChat.entites.Notification;
+import tn.esprit.MicroChat.entites.User;
 import tn.esprit.MicroChat.services.NotificationServiceimp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,15 @@ public class NotificationController {
         try {
             Notification newn = ns.addNotification(n);
             return new ResponseEntity<>(newn, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @PostMapping("/adduser")
+    public ResponseEntity<User> addUser(@RequestBody User user) {
+        try {
+            User newu = ns.addUser(user);
+            return new ResponseEntity<>(newu, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -66,4 +76,12 @@ public class NotificationController {
         }
 
     }
+
+    @GetMapping("/getMesNotifications/{userId}")
+    @ResponseBody
+    public List<Notification> getNotificationsByUserId(@PathVariable("userId") long userId)
+    {
+        return ns.mesnotifications(userId);
+    }
+
 }

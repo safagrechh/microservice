@@ -1,9 +1,11 @@
 package tn.esprit.MicroChat.services;
 
 import tn.esprit.MicroChat.entites.Notification;
+import tn.esprit.MicroChat.entites.User;
 import tn.esprit.MicroChat.repositories.NotificationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tn.esprit.MicroChat.repositories.UserRepository;
 
 import java.util.List;
 
@@ -11,6 +13,7 @@ import java.util.List;
 public class NotificationServiceimp implements INotification{
 @Autowired
 private NotificationRepository nr ;
+    private UserRepository ur ;
     @Override
     public List<Notification> getNotifications() {
         return nr.findAll();
@@ -40,4 +43,16 @@ private NotificationRepository nr ;
     public Notification getvByName(String name) {
         return nr.findByTitle(name);
     }
+
+    @Override
+    public List<Notification> mesnotifications(Long iduser)
+    {
+        return nr.findByUser_IdUser(iduser);
+    }
+
+    @Override
+    public User addUser(User user) {
+        return ur.save(user);
+    }
+
 }
